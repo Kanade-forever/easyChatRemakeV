@@ -32,6 +32,8 @@ private slots:
 
     void on_btnConnect_clicked();
 
+    void onIpInputClosed();
+
 private:
     Ui::Widget *ui;
     tcpsocket socket;

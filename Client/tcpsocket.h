@@ -19,6 +19,7 @@ public:
 
     void messageSend(Message &message);
     void tcpConnect(QString ipAddress = "127.0.0.1");
+    void tcpDisConnect();
 signals:
     void socketReceiveMessage(Message &message);
 

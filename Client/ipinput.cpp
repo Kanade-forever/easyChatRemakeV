@@ -5,6 +5,7 @@ IpAddressInputWindow::IpAddressInputWindow(QWidget *parent)
     Q_UNUSED(parent);
 
     this->setWindowTitle("Connect");
+    this->setAttribute(Qt::WA_ShowModal,true);
 
     QHBoxLayout *hlayout = new QHBoxLayout();
     QVBoxLayout *vlayout = new QVBoxLayout(this);
@@ -46,6 +47,7 @@ void IpAddressInputWindow::onButtonClicked()
         QMessageBox::warning(this,"Warning","输入的IP格式错误!");
     }
     else{
+        emit ipInputClosed();
         this->hide();
     }
 }

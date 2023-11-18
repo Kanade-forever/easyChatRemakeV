@@ -18,6 +18,8 @@ public:
 private slots:
     void onButtonClicked();
 //    void onTextChanged(const QString &text);
+signals:
+    void ipInputClosed();
 private:
     QLineEdit *lineEdit;
     QString ip;

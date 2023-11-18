@@ -24,8 +24,6 @@ object_script.*.Debug
 ../Server/release
 ../Client/debug
 ../Server/release
-../Client/*.qmake.stash
-../Server/*.qmake.stash
 *.pro.user
 *.pro.user.*
 *.qbs.user

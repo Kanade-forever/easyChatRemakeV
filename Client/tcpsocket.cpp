@@ -31,6 +31,11 @@ void tcpsocket::tcpConnect(QString ipAddress)
     socket.connectToHost(ipAddress,1234,QIODevice::ReadWrite);
 }
 
+void tcpsocket::tcpDisConnect()
+{
+    this->socket.disconnectFromHost();
+}
+
 void tcpsocket::onConnected()
 {
 

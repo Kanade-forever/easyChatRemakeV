@@ -11,6 +11,8 @@ Widget::Widget(QWidget *parent)
 
     connect(&socket,&tcpsocket::socketReceiveMessage,
             this,&Widget::onSocketReceiveMessage);
+    connect(ipinput,&IpAddressInputWindow::ipInputClosed,
+            this,&Widget::onIpInputClosed);
 
     socket.runTcpSocket();
 
@@ -56,15 +58,18 @@ void Widget::on_btnImage_clicked()
 
 void Widget::on_btnDisconnect_clicked()
 {
+    this->socket.tcpDisConnect();
     QMessageBox::information(this,"Tips","DisConnected Successfully");
-    this->socket.disconnect();
     this->ui->labelCurrentIPAdd->setText("NULL");
 }
-
 
 void Widget::on_btnConnect_clicked()
 {
     this->ipinput->show();
+}
+
+void Widget::onIpInputClosed()
+{
     QString ip = this->ipinput->getIp();
     if(!ip.isEmpty()){
         this->socket.tcpConnect(ip);
